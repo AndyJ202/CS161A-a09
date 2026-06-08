@@ -30,6 +30,7 @@ int main() {
   cout << "\nHow many positive integers do you want to process? ";
   getInput (numIntegers);
   if (cin && numIntegers > 0) {  //Data validation
+    cout << endl;
     doStats (numIntegers);
   }
   else {
@@ -79,6 +80,6 @@ void doStats(int num) {
       minValPosition = i;
     }
   }
-  cout << "The minimum number entered was " << numMin << " entered in position "<< minValPosition << "." << endl;
+  cout << "\nThe minimum number entered was " << numMin << " entered in position "<< minValPosition << "." << endl;
   cout << "The maximum number entered was " << numMax << " entered in position "<< maxValPosition << "." << endl;
 }
