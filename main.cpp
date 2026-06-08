@@ -17,6 +17,8 @@
 using namespace std;
 
 //Function prototypes
+void welcomeMessage();
+void goodByeMessage();
 void getInput(int &num);
 void doStats(int num);
 
@@ -24,7 +26,7 @@ void doStats(int num);
 int main() {
   int numIntegers = 0;
 
-  cout << "Welcome to my Final Exam Practice." << endl;
+  welcomeMessage();
   cout << "\nHow many positive integers do you want to process? ";
   getInput (numIntegers);
   if (cin && numIntegers > 0) {  //Data validation
@@ -33,9 +35,17 @@ int main() {
   else {
     cout << "\nNo integers were entered." << endl;
   }
-  cout << "\nThank you for using my program." << endl;
+  goodByeMessage();
 
   return 0;
+}
+
+void welcomeMessage() {
+  cout << "Welcome to my Final Exam Practice." << endl;
+}
+
+void goodByeMessage(){
+  cout << "\nThank you for using my program." << endl;
 }
 
 //Get user inputs, create prompts, calculate final output, and final output
