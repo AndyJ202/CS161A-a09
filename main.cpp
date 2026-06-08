@@ -1,80 +1,74 @@
-// ------------- FILE HEADER -------------
-// Author ✅: 
-// Assignment ✅:
-// Date ✅:
-// Citations: 
-
-
-// ------------- ZYBOOKS SCORES -------------
-// Chapter ✅: 
-// Participation ✅: 
-// Challenge ✅:
-// Labs ✅:
-
-
-// ------------- DISCORD POSTS -------------
-// https://discord.com/invite/URYKKf8YHm
-// Count ✅:
-// Links (Optional): 
-
-
-// ------------- DESIGN DOCUMENT -------------
-// A. INPUT ✅: 
-// B. OUTPUT ✅:
-// C. CALCULATIONS ✅:
-// D. LOGIC and ALGORITHMS ✅:
-//    (Optional) flow chart link or file name: 
-
-
-// ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS ✅: 
-// (Optional) Additional tests count:   
-
-
-// ------------- CODE -------------
+/******************************************************************************
+# Author:           Andy Joy
+# Assignment:       Assignment 9
+# Date:             06/07/2026
+# Description:      This program takes how many positive integers the user 
+#                   wants to process, then loops to gather the desired amount. 
+#                   Once all data has been collected, the program will output 
+#                   the max, min, and position of said values.
+# Input:            num (int), userVal (int).
+# Output:           i (int), numMin (int), numMax (int), minValPosition (int),
+#                   maxValPosition (int).
+# Sources:          N/A
+#******************************************************************************/
 #include <iostream>
-
+#include <iomanip>
+#include <cmath>
 using namespace std;
 
-// Function prototypes (if any)
+//Function prototypes
+void getInput(int &num);
+void doStats(int num);
 
+//Main function
+int main() {
+  int numIntegers = 0;
 
-// Main function
-// https://en.cppreference.com/w/cpp/language/main_function.html
-int main(int argc, char* argv[]) {
-  cout << "Hello, World!" << endl;
+  cout << "Welcome to my Final Exam Practice." << endl;
+  cout << "\nHow many positive integers do you want to process? ";
+  getInput (numIntegers);
+  if (cin && numIntegers > 0) {  //Data validation
+    doStats (numIntegers);
+  }
+  else {
+    cout << "\nNo integers were entered." << endl;
+  }
+  cout << "\nThank you for using my program." << endl;
+
   return 0;
 }
 
-// Function implementations (if any)
+//Get user inputs, create prompts, calculate final output, and final output
+void getInput(int &num) {
+  cin >> num;
+}
 
-
-// ------------- DESIGN -------------
-/* 
-Program Name:
-
-Program Description:
-
-Design:
-A. INPUT
-Define the input variables including name data type. 
-
-B. OUTPUT
-Define the output variables including data types. 
-
-C. CALCULATIONS
-Describe calculations used by algorithms in step D.  
-List all formulas. 
-If there are no calculations needed, state there are no calculations.
-
-D. LOGIC and ALGORITHMS
-Design the logic of your program using pseudocode or flowcharts. 
-Use conditionals, loops, functions or array constructs.
-List the steps in transforming inputs into outputs. 
-https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
-
-
-SAMPLE RUNS
-Copy from assignment document.
-
-*/
+// Get all integer values
+void doStats(int num) {
+  int userVal = 0;
+  int numMax = 0;
+  int numMin = 0;
+  int maxValPosition = 0;
+  int minValPosition = 0;
+  int i = 0;
+  
+  for (i = 1; i <= num; i++) {
+    cout << "Enter integer #" << i << ": "; 
+    cin >> userVal;
+    while (userVal <= 0) {
+      cout << "Enter a positive integer!" << endl;
+      cout << "Enter integer #" << i << ": "; 
+      cin >> userVal;
+    }
+    if (userVal > numMax) {
+      numMax = userVal;
+      maxValPosition = i;
+    }
+    if (userVal < numMin || numMin == 0) {
+      numMin = userVal;
+      minValPosition = i;
+    }
+  }
+  cout << "The minimum number entered was " << numMin << " entered in position "<< minValPosition << "." << endl;
+  cout << "The maximum number entered was " << numMax << " entered in position "<< maxValPosition << "." << endl;
+}
